@@ -8,7 +8,7 @@ The dataset I used was USA 2020 Political Tweets from [Kaggle](https://www.kaggl
 
 ## Usage
 
-1. Download one of the csv files in the link specified above and then run the R code choosing the downloaded file. The first part will clean the csv file, "tweets" column and make a new column named "clean_tweet" as well as write a new csv file of the cleaned data. The second portion of this code will plot and graph analytics in regards to the frequency of tweets over time as well as sentiment analysis of the most popular terms used graphed in an ordered bar chart and word cloud.
+Download one of the csv files in the link specified above and then run the R code choosing the downloaded file. The first part will clean the csv file, "tweets" column and make a new column named "clean_tweet" as well as write a new csv file of the cleaned data. The second portion of this code will plot and graph analytics in regards to the frequency of tweets over time as well as sentiment analysis of the most popular terms used graphed in an ordered bar chart and word cloud.
 
 # Problem Statement
 
@@ -51,15 +51,22 @@ After collecting and cleaning the tweets column, my main hypothesis before doing
 
 We can see trends of when people start tweeting more about Trump and can correlate an upward trend to specific events during 2020 where people are talking more about Trump. This can also help subset the data as filtering the data to be within a specific time frame and seeing the sentiment around Donald Trump before and after major time events such as the US election night.
 
+![Frequency of amount of tweets about Donald Trump over time](https://github.com/vwong175/Twitter-Sentiment-Analysis/blob/main/Donald_Trump_Frequency_Tweets.png)
+
 ## EDA: Top Terms used in Donald Trump Tweets - Bar Graph / Word Cloud
 
 Using the entire cleaned Donald Trump dataset, we can get all of the relevant terms that were used in all of the tweets, observe which words came up most frequently, and what words were used the least. This helps with the sentiment analysis regarding Trump because depending on the word(s), it can be telling of how people see Donald Trump as well as variability and divergence of opinion on Trump.
+
+![Rainbow bar graph based on top words used in Donald Trump Tweets](https://github.com/vwong175/Twitter-Sentiment-Analysis/blob/main/Donald_Trump_Top_Words.png)
+![Word Cloud based on top words used in Donald Trump Tweets](https://github.com/vwong175/Twitter-Sentiment-Analysis/blob/main/Donald_Trump_Word_Cloud.png)
 
 ## EDA: Box Plot on Tweet Length
 
 Seeing how long people are making their tweets about Donald Trump will be telling of how much they have to say about him and whether or not they have a lot or little to say. This helps with further analysis by grouping tweets that are in the third quartile where people are saying more about Trump and seeing what the sentiment is with that. It is also telling of whether or not people are being concise with their opinions or not.
 
 This is used in conjunction with the summary function of the dataframe.
+
+![Box plot on Donald Trump Tweet Length](https://github.com/vwong175/Twitter-Sentiment-Analysis/blob/main/Donald_Trump_Tweet_Length.png)
 
 
 # Modeling and Analysis
@@ -88,8 +95,14 @@ The following describes the steps I used as preprocessing to the modeling:
     
 6.  Set a random seed value from 1 to 1,000,000
 
+### LDA Word Cloud
+![LDA Word Cloud](https://github.com/vwong175/Twitter-Sentiment-Analysis/blob/main/lda%20word%20cloud.png)
+
 ## CTM
 CTM stands for correlated topic models which is a hierarchical model that explicitly models the correlation of latent topics. It allows for deeper understanding among topics and allows topic proportions to be correlated via the logistic normal distribution. It relaxes the independence assumption approach but creates a more flexible modeling approach than LDA by replacing the Dirichlet distribution with a logistic normal distribution and explicitly incorporating a covariance structure among topics. Essentially, it allows for a more realistic modeling by allowing topics to be correlated.
+
+### CTM Word Cloud
+![CTM Word Cloud](https://github.com/vwong175/Twitter-Sentiment-Analysis/blob/main/ctm%20word%20cloud.png)
 
 ## STM
 
@@ -98,6 +111,8 @@ STM stands for structural topic models which combine the common topic models to 
 ## Gibbs Sampling
 The Gibbs sampling model goes through each document and randomly assigns each word in the document to one of the K topics. In my project, since I am working with tweets with already a limited character setting, I made sure that I set the k to a small value which in this case is 3. In doing so, the models are all going to find the top 10 words under the assumption that there are only 3 topics that are spoken of in the text corpus. In the Gibbs sampling, it goes through each word w in the dictionary d, and for each topic t, it computes 2 things: the proportion of words in document d that are currently assigned to topic t and the proportion of assignment to topic t over all documents that come from this word.
 
+### Gibbs Sampling Word Cloud
+![Gibbs Sampling Word Cloud](https://github.com/vwong175/Twitter-Sentiment-Analysis/blob/main/gibb%20wordcloud%20top%20words.png)
 
 # Modeling Conclusions
 
