@@ -95,6 +95,9 @@ The following describes the steps I used as preprocessing to the modeling:
     
 6.  Set a random seed value from 1 to 1,000,000
 
+### LDA Modeling
+![Foour models from LDA Modeling to get top 10 words with k set to 3](https://github.com/vwong175/Twitter-Sentiment-Analysis/blob/main/4%20LDA%20models.png)
+
 ### LDA Word Cloud
 ![LDA Word Cloud](https://github.com/vwong175/Twitter-Sentiment-Analysis/blob/main/lda%20word%20cloud.png)
 
